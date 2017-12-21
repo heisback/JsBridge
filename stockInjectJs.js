@@ -74,6 +74,7 @@ function () {
         try {
             var id = _getID(),
                 args = [];
+            //callHandlerCallback存放js调用native的回调函数信息
             if (!stockJsbridgeAndroid.callHandlerCallback) stockJsbridgeAndroid.callHandlerCallback = {};
             for (var i in arguments) {
                 var name = id + '_a' + i,
@@ -82,7 +83,7 @@ function () {
                 var listeners = {};
                 _parseFunction(item, name, listeners);
                 for (var key in listeners) {
-                    stockJsbridgeAndroid.callHandlerCallback[key] = listeners[key];
+                    stockJsbridgeAndroid.callHandlerCallback[key] = listeners[key];//js调用native的回调
                 };
                 args.push({
                     type: _getType(item),
@@ -104,6 +105,7 @@ function () {
         try {
             var id = _getID(),
                 args = [];
+            //registerHandlerCallback存放native调用js的回调函数信息
             if (!stockJsbridgeAndroid.registerHandlerCallback) stockJsbridgeAndroid.registerHandlerCallback = {};
             for (var i in arguments) {
                 var name = id + '_a' + i,
