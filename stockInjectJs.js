@@ -1,5 +1,5 @@
 function () {
-    function _getType(args) {
+    function _getType(args) {//java 和 JavaScript类型映射
         var type = 0;
         if (typeof args === 'string') {
             type = 1
@@ -17,7 +17,7 @@ function () {
         return type
     };
 
-    function _parseFunction(obj, name, callback) {
+    function _parseFunction(obj, name, callback) { //解析是否有回调函数
         if (typeof obj === 'function') {
             callback[name] = obj;
             obj = '[Function]::' + name;
